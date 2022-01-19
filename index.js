@@ -6,4 +6,4 @@ exports.__esModule = true;
 
 var _StrapiExtenderUtils = _interopRequireDefault(require("./StrapiExtenderUtils"));
 
-exports.StrapiExtenderUtils = _StrapiExtenderUtils["default"];
+exports.StrapiExtenderUtils = _StrapiExtenderUtils.default;

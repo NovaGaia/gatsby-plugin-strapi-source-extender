@@ -3,7 +3,7 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -17,7 +17,7 @@ var _StrapiExtenderUtils$;
 StrapiExtenderUtils.objectToArray = function (dz) {
   var dzSanitized = [];
   Object.keys(dz).forEach(function (key) {
-    return dzSanitized.push(dz[key]);
+    return dz[key] ? dzSanitized.push(dz[key]) : '';
   });
   dzSanitized.sort(function (a, b) {
     return a.order - b.order;
@@ -30,10 +30,10 @@ function StrapiExtenderUtils() {
 }
 
 StrapiExtenderUtils.objectToArray.propTypes = (_StrapiExtenderUtils$ = {
-  dz: _propTypes["default"].object.isRequired
-}, _StrapiExtenderUtils$["dz"] = _propTypes["default"].shape({
-  order: _propTypes["default"].number.isRequired,
-  __typename: _propTypes["default"].string.isRequired
+  dz: _propTypes.default.object.isRequired
+}, _StrapiExtenderUtils$["dz"] = _propTypes.default.shape({
+  order: _propTypes.default.number.isRequired,
+  __typename: _propTypes.default.string.isRequired
 }), _StrapiExtenderUtils$);
 var _default = StrapiExtenderUtils;
-exports["default"] = _default;
+exports.default = _default;
