@@ -1,13 +1,12 @@
 {
   "name": "gatsby-plugin-strapi-source-extender",
   "version": "1.0.1",
-  "description": "A plugin to have dynamic zone as the normal Gatsby way",
+  "description": "A plugin to have dynamic zone with the Gatsby way",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build",
-    "semantic-release": "semantic-release",
     "release": "release-it"
   },
   "keywords": [
@@ -19,7 +18,7 @@
     "strapi"
   ],
   "files": [
-    "gatsby-node.js,StrapiExtented.js"
+    "gatsby-node.js,StrapiExtentedUtils.js,index.js"
   ],
   "author": "novagaia",
   "license": "ISC",
