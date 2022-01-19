@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-strapi-source-extender",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin to have dynamic zone as the normal Gatsby way",
   "main": "index.js",
   "scripts": {

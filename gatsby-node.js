@@ -40,10 +40,10 @@ exports.onPreInit = function (_, pluginOptions) {
 };
 
 exports.onCreateNode = /*#__PURE__*/function () {
-  var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {
+  var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(_ref) {
     var node, createNode, createNodeId, createContentDigest, POST_NODE_TYPE, _iterator2, _step2, _strapiType, _iterator3, _step3, _dz, dynamicZone, position, _iterator4, _step4, component, name;
 
-    return _regenerator.default.wrap(function _callee$(_context) {
+    return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -82,7 +82,7 @@ exports.onCreateNode = /*#__PURE__*/function () {
                 }
               }
 
-              createNode((0, _extends2.default)({}, node, {
+              createNode((0, _extends2["default"])({}, node, {
                 id: createNodeId(POST_NODE_TYPE + "-" + node.id),
                 parent: null,
                 children: [],

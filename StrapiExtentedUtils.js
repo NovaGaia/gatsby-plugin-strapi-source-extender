@@ -3,7 +3,7 @@
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 exports.__esModule = true;
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
@@ -30,10 +30,10 @@ function StrapiExtentedUtils() {
 }
 
 StrapiExtentedUtils.objectToArray.propTypes = (_StrapiExtentedUtils$ = {
-  dz: _propTypes.default.object.isRequired
-}, _StrapiExtentedUtils$["dz"] = _propTypes.default.shape({
-  order: _propTypes.default.number.isRequired,
-  __typename: _propTypes.default.string.isRequired
+  dz: _propTypes["default"].object.isRequired
+}, _StrapiExtentedUtils$["dz"] = _propTypes["default"].shape({
+  order: _propTypes["default"].number.isRequired,
+  __typename: _propTypes["default"].string.isRequired
 }), _StrapiExtentedUtils$);
 var _default = StrapiExtentedUtils;
-exports.default = _default;
+exports["default"] = _default;
