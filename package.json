@@ -17,9 +17,6 @@
     "gatsby-source-plugin",
     "strapi"
   ],
-  "files": [
-    "gatsby-node.js,StrapiExtentedUtils.js,index.js"
-  ],
   "author": "novagaia",
   "license": "ISC",
   "dependencies": {
