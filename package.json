@@ -30,14 +30,8 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^9.0.0",
-    "@semantic-release/release-notes-generator": "^10.0.3",
     "babel-preset-gatsby-package": "^0.1.4",
-    "cross-env": "^5.0.5",
-    "semantic-release": "^19.0.2"
+    "cross-env": "^5.0.5"
   },
   "repository": {
     "type": "git",
