@@ -1,13 +1,14 @@
 {
   "name": "gatsby-plugin-strapi-source-extender",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "A plugin to have dynamic zone as the normal Gatsby way",
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir . --ignore **/__tests__",
     "watch": "babel -w src --out-dir . --ignore **/__tests__",
     "prepare": "cross-env NODE_ENV=production npm run build",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "release": "release-it"
   },
   "keywords": [
     "gatsby",
@@ -30,14 +31,9 @@
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/commit-analyzer": "^9.0.2",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^9.0.0",
-    "@semantic-release/release-notes-generator": "^10.0.3",
     "babel-preset-gatsby-package": "^0.1.4",
     "cross-env": "^5.0.5",
-    "semantic-release": "^19.0.2"
+    "release-it": "^14.12.3"
   },
   "repository": {
     "type": "git",

@@ -1,8 +1,8 @@
 # gatsby-plugin-strapi-source-extender
 
-A plugin to convert Strapi Source node to the right way, the Gatsby Way!
+A plugin to extend Strapi Source plugin.
 
-- You can have Dynamic Zone usable, not only a JSON ;
+- You can have Dynamic Zone usable, not a JSON object ;
 - Images in Dynamic Zone can be used with gatsby-image.
 
 > Tested with:
@@ -52,7 +52,7 @@ module.exports = {
 
 `contentSections` is a Dynamic zone
 
-For each elements in the Dynamic zone, you **must** add two properties
+For each elements in the Dynamic zone, you **must** request two properties :
 
 - `__typename` to assign a behavior to the component ;
 - `order` to keep the order of components as they are in Strapi admin.
@@ -71,7 +71,7 @@ query DynamicPageQuery($id: String!, $locale: String!) {
 
 ### Gatsby exemple.
 
-The Dynamic zone in Gatsby is an Object, not an Array. Instead of, you'll have null components repeated.
+The Dynamic Zone content with this plugin is not a JSON, it's an Object, but not an Array. Instead of, you'll have null components repeated.
 
 Because is an object, you can't iterate into, so add this :
 
@@ -81,6 +81,8 @@ Because is an object, you can't iterate into, so add this :
 
 const dzSanitized = [];
 Object.keys(sections).forEach((key) => dzSanitized.push(sections[key]));
+
+// Order array like in Strapi Admin
 dzSanitized.sort(function (a, b) {
   return a.order - b.order;
 });
