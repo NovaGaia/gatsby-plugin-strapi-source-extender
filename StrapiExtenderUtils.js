@@ -7,14 +7,14 @@ exports["default"] = void 0;
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _StrapiExtentedUtils$;
+var _StrapiExtenderUtils$;
 
 /**
  * Methode who create Array and sort it by order.
  * @param {*} dz Object corresponding to the Dynamic Zone
  * @returns Array of data, ordered by `order`
  */
-StrapiExtentedUtils.objectToArray = function (dz) {
+StrapiExtenderUtils.objectToArray = function (dz) {
   var dzSanitized = [];
   Object.keys(dz).forEach(function (key) {
     return dzSanitized.push(dz[key]);
@@ -25,15 +25,15 @@ StrapiExtentedUtils.objectToArray = function (dz) {
   return dzSanitized;
 };
 
-function StrapiExtentedUtils() {
+function StrapiExtenderUtils() {
   throw 'Do not use directly, use helper methods.';
 }
 
-StrapiExtentedUtils.objectToArray.propTypes = (_StrapiExtentedUtils$ = {
+StrapiExtenderUtils.objectToArray.propTypes = (_StrapiExtenderUtils$ = {
   dz: _propTypes["default"].object.isRequired
-}, _StrapiExtentedUtils$["dz"] = _propTypes["default"].shape({
+}, _StrapiExtenderUtils$["dz"] = _propTypes["default"].shape({
   order: _propTypes["default"].number.isRequired,
   __typename: _propTypes["default"].string.isRequired
-}), _StrapiExtentedUtils$);
-var _default = StrapiExtentedUtils;
+}), _StrapiExtenderUtils$);
+var _default = StrapiExtenderUtils;
 exports["default"] = _default;

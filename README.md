@@ -25,7 +25,7 @@ yarn install gatsby-plugin-strapi-source-extender
 // ./gatsby-config.js
 module.exports = {
     {
-        resolve: 'gatsby-plugin-strapi-extended',
+        resolve: 'gatsby-plugin-strapi-source-extender',
         options: {
         postfix: 'Ext',
         strapiTypes: [
@@ -79,20 +79,22 @@ Because is an object, you can't iterate into, so add this :
 // sections is an object, our Dynamic zone
 // dzSanitized is an Array, our Dynamic zone sorted
 
-const dzSanitized = [];
-Object.keys(sections).forEach((key) => dzSanitized.push(sections[key]));
+const dzSanitized = []
+Object.keys(sections).forEach(key => dzSanitized.push(sections[key]))
 
 // Order array like in Strapi Admin
 dzSanitized.sort(function (a, b) {
-  return a.order - b.order;
-});
+  return a.order - b.order
+})
 ```
 
 Or you can use the helper :
 
 ```javascript
+import { StrapiExtenderUtils } from 'gatsby-plugin-strapi-source-extender'
+...
 {
-  StrapiExtentedUtils.objectToArray(sections).map((section, i) => {
+  StrapiExtenderUtils.objectToArray(sections).map((section, i) => {
     return (
       <Section
         sectionData={section}
