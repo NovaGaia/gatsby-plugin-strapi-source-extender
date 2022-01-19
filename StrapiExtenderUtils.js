@@ -17,7 +17,7 @@ var _StrapiExtenderUtils$;
 StrapiExtenderUtils.objectToArray = function (dz) {
   var dzSanitized = [];
   Object.keys(dz).forEach(function (key) {
-    return dzSanitized.push(dz[key]);
+    return dz[key] ? dzSanitized.push(dz[key]) : '';
   });
   dzSanitized.sort(function (a, b) {
     return a.order - b.order;
