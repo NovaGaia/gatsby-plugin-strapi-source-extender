@@ -1,3 +1,3 @@
-import StrapiExtentedUtils from './StrapiExtentedUtils'
+import StrapiExtenderUtils from './StrapiExtenderUtils'
 
-export { StrapiExtentedUtils }
+export { StrapiExtenderUtils }

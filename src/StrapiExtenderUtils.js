@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
  * @param {*} dz Object corresponding to the Dynamic Zone
  * @returns Array of data, ordered by `order`
  */
-StrapiExtentedUtils.objectToArray = dz => {
+StrapiExtenderUtils.objectToArray = dz => {
   const dzSanitized = []
   Object.keys(dz).forEach(key => dzSanitized.push(dz[key]))
   dzSanitized.sort(function (a, b) {
@@ -14,11 +14,11 @@ StrapiExtentedUtils.objectToArray = dz => {
   return dzSanitized
 }
 
-function StrapiExtentedUtils() {
+function StrapiExtenderUtils() {
   throw 'Do not use directly, use helper methods.'
 }
 
-StrapiExtentedUtils.objectToArray.propTypes = {
+StrapiExtenderUtils.objectToArray.propTypes = {
   dz: PropTypes.object.isRequired,
   dz: PropTypes.shape({
     order: PropTypes.number.isRequired,
@@ -26,4 +26,4 @@ StrapiExtentedUtils.objectToArray.propTypes = {
   }),
 }
 
-export default StrapiExtentedUtils
+export default StrapiExtenderUtils
