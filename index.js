@@ -4,6 +4,6 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 exports.__esModule = true;
 
-var _StrapiExtentedUtils = _interopRequireDefault(require("./StrapiExtentedUtils"));
+var _StrapiExtenderUtils = _interopRequireDefault(require("./StrapiExtenderUtils"));
 
-exports.StrapiExtentedUtils = _StrapiExtentedUtils["default"];
+exports.StrapiExtenderUtils = _StrapiExtenderUtils["default"];
