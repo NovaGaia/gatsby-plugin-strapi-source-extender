@@ -48,7 +48,9 @@ exports.onCreateNode = async ({
             }
             node[_dz] = dynamicZone
             // Keep data as JSON for fallBack
-            node[`${_dz}JSON`] = JSON.stringify(`{${dynamicZoneJSON}}`)
+            node[`${_dz}JSON`] = JSON.stringify(
+              Object.assign({}, dynamicZoneJSON)
+            )
           }
         }
       }
