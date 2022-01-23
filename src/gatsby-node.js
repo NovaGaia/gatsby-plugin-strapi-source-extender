@@ -32,6 +32,7 @@ exports.onCreateNode = async ({
         for (const _dz of _strapiType.dynamicZones) {
           if (node[_dz] && node[_dz].length > 0) {
             const dynamicZone = {}
+            const dynamicZoneJSON = []
             let position = 0
             for (const component of node[_dz]) {
               if (component) {
@@ -41,12 +42,13 @@ exports.onCreateNode = async ({
                 // component['__typename'] = pascalize(name)
                 component['order'] = position
                 dynamicZone[name] = component
+                dynamicZoneJSON.push(component)
                 position++
               }
             }
             node[_dz] = dynamicZone
             // Keep data as JSON for fallBack
-            node[`${_dz}JSON`] = JSON.stringify(dynamicZone)
+            node[`${_dz}JSON`] = JSON.stringify(dynamicZoneJSON)
           }
         }
       }

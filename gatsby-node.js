@@ -41,7 +41,7 @@ exports.onPreInit = function (_, pluginOptions) {
 
 exports.onCreateNode = /*#__PURE__*/function () {
   var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee(_ref) {
-    var node, createNode, createNodeId, createContentDigest, POST_NODE_TYPE, _iterator2, _step2, _strapiType, _iterator3, _step3, _dz, dynamicZone, position, _iterator4, _step4, component, name;
+    var node, createNode, createNodeId, createContentDigest, POST_NODE_TYPE, _iterator2, _step2, _strapiType, _iterator3, _step3, _dz, dynamicZone, dynamicZoneJSON, position, _iterator4, _step4, component, name;
 
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {
@@ -62,6 +62,7 @@ exports.onCreateNode = /*#__PURE__*/function () {
 
                     if (node[_dz] && node[_dz].length > 0) {
                       dynamicZone = {};
+                      dynamicZoneJSON = [];
                       position = 0;
 
                       for (_iterator4 = _createForOfIteratorHelperLoose(node[_dz]); !(_step4 = _iterator4()).done;) {
@@ -72,13 +73,14 @@ exports.onCreateNode = /*#__PURE__*/function () {
 
                           component['order'] = position;
                           dynamicZone[name] = component;
+                          dynamicZoneJSON.push(component);
                           position++;
                         }
                       }
 
                       node[_dz] = dynamicZone; // Keep data as JSON for fallBack
 
-                      node[_dz + "JSON"] = JSON.stringify(dynamicZone);
+                      node[_dz + "JSON"] = JSON.stringify(dynamicZoneJSON);
                     }
                   }
                 }
