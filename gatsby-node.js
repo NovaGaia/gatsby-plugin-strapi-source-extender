@@ -78,7 +78,7 @@ exports.onCreateNode = /*#__PURE__*/function () {
 
                       node[_dz] = dynamicZone; // Keep data as JSON for fallBack
 
-                      node[_dz + "JSON"] = _dz;
+                      node[_dz + "JSON"] = JSON.stringify(dynamicZone);
                     }
                   }
                 }
