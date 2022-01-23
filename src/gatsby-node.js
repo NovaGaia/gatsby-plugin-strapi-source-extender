@@ -38,13 +38,15 @@ exports.onCreateNode = async ({
                 const name = camelize(
                   component.strapi_component.replace('.', '_')
                 )
-                component['__typename'] = pascalize(name)
+                // component['__typename'] = pascalize(name)
                 component['order'] = position
                 dynamicZone[name] = component
                 position++
               }
             }
             node[_dz] = dynamicZone
+            // Keep data as JSON for fallBack
+            node[`${_dz}JSON`] = _dz
           }
         }
       }
