@@ -1,4 +1,4 @@
-const { pascalize, camelize } = require('humps')
+const { camelize } = require('humps')
 const _pluginOptions = {}
 
 exports.onPreInit = (_, pluginOptions) => {
@@ -6,6 +6,7 @@ exports.onPreInit = (_, pluginOptions) => {
   _pluginOptions.strapiTypes = pluginOptions.strapiTypes
   _pluginOptions.seekedTypes = []
   _pluginOptions.postfix = pluginOptions.postfix || 'Ext'
+  _pluginOptions.showLog = pluginOptions.showLog || false
   if (pluginOptions.postfix === undefined || pluginOptions.postfix === '') {
     console.log("postfix can't be unset, fallback to", _pluginOptions.postfix)
   }
@@ -25,7 +26,9 @@ exports.onCreateNode = async ({
     _pluginOptions.seekedTypes.indexOf(node.internal.type) > -1
   ) {
     let POST_NODE_TYPE = `${node.internal.type}${_pluginOptions.postfix}`
-    console.log('Processing', POST_NODE_TYPE)
+    if (_pluginOptions.showLog) {
+      console.log('Processing', POST_NODE_TYPE)
+    }
     // unshuffle all mixed components properties.
     for (const _strapiType of _pluginOptions.strapiTypes) {
       if (_strapiType.type === node.internal.type && _strapiType.dynamicZones) {
