@@ -5,10 +5,14 @@ exports.onPreInit = (_, pluginOptions) => {
   console.log('Loaded gatsby-plugin-strapi-override')
   _pluginOptions.strapiTypes = pluginOptions.strapiTypes
   _pluginOptions.seekedTypes = []
-  _pluginOptions.postfix = pluginOptions.postfix || 'Ext'
-  _pluginOptions.showLog = pluginOptions.showLog || false
+  _pluginOptions.postfix = pluginOptions.postfix
+  _pluginOptions.showLog = pluginOptions.showLog
   if (pluginOptions.postfix === undefined || pluginOptions.postfix === '') {
+    _pluginOptions.postfix = 'Ext'
     console.log("postfix can't be unset, fallback to", _pluginOptions.postfix)
+  }
+  if (pluginOptions.showLog === undefined || pluginOptions.showLog === '') {
+    _pluginOptions.showLog = false
   }
   for (const strapiTypes of pluginOptions.strapiTypes) {
     _pluginOptions.seekedTypes.push(strapiTypes.type)
