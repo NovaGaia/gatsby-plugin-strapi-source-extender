@@ -11,7 +11,7 @@ A plugin to extend Strapi Source plugin.
 > - `"strapi": "3.6.8"`
 > - `"gatsby": "^4.4.0"`
 
-## Installlation
+## Installation
 
 ```bash
 npm i gatsby-plugin-strapi-source-extender
@@ -28,6 +28,7 @@ module.exports = {
         resolve: 'gatsby-plugin-strapi-source-extender',
         options: {
         postfix: 'Ext',
+        showLog: false,
         strapiTypes: [
             { type: 'StrapiPage', dynamicZones: ['contentSections'] },
             { type: 'StrapiGlobal' },
@@ -42,6 +43,7 @@ module.exports = {
 | Property                 | Usage                                                                                |
 | ------------------------ | ------------------------------------------------------------------------------------ |
 | postfix                  | The postfix of name of the new type, default : `Ext`. Eg. `<StrapiSouceType>Postfix` |
+| showLog                  | Display log messages, default : `false`                                              |
 | strapiTypes              | All the Strapi types to manage.                                                      |
 | strapiTypes.type         | Name of the Strapi type to manage.                                                   |
 | strapiTypes.dynamicZones | All the Dynamic Zones (root only) to manage.                                         |
@@ -80,7 +82,15 @@ Because is an object, you can't iterate into, so add this :
 // dzSanitized is an Array, our Dynamic zone sorted
 
 const dzSanitized = []
-Object.keys(sections).forEach(key => dzSanitized.push(sections[key]))
+
+// Remove empty datas
+Object.keys(dz).forEach(key => {
+  if (dz[key]) {
+    Object.keys(dz[key]).forEach(microKey => {
+      dz[key][microKey] ? dzSanitized.push(dz[key][microKey]) : ''
+    })
+  }
+})
 
 // Order array like in Strapi Admin
 dzSanitized.sort(function (a, b) {
