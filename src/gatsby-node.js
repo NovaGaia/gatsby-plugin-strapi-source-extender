@@ -1,10 +1,11 @@
-const { camelize } = require('humps')
+const { camelize, pascalize } = require('humps')
 const _pluginOptions = {}
 
 exports.onPreInit = (_, pluginOptions) => {
   console.log('Loaded gatsby-plugin-strapi-override')
   _pluginOptions.strapiTypes = pluginOptions.strapiTypes
   _pluginOptions.seekedTypes = []
+  _pluginOptions.seekedTypesExt = []
   _pluginOptions.postfix = pluginOptions.postfix
   _pluginOptions.showLog = pluginOptions.showLog
   if (pluginOptions.postfix === undefined || pluginOptions.postfix === '') {
@@ -16,15 +17,20 @@ exports.onPreInit = (_, pluginOptions) => {
   }
   for (const strapiTypes of pluginOptions.strapiTypes) {
     _pluginOptions.seekedTypes.push(strapiTypes.type)
+    _pluginOptions.seekedTypesExt.push(
+      `${strapiTypes.type}${_pluginOptions.postfix}`
+    )
   }
   console.log('strapiTypes to manage', _pluginOptions.seekedTypes)
+  console.log('use these types instead', _pluginOptions.seekedTypesExt)
 }
-exports.onCreateNode = async ({
+
+async function onCreateNode({
   node,
   actions: { createNode },
   createNodeId,
   createContentDigest,
-}) => {
+}) {
   if (
     node.internal.type !== null &&
     _pluginOptions.seekedTypes.indexOf(node.internal.type) > -1
@@ -32,6 +38,7 @@ exports.onCreateNode = async ({
     let POST_NODE_TYPE = `${node.internal.type}${_pluginOptions.postfix}`
     if (_pluginOptions.showLog) {
       console.log('Processing', POST_NODE_TYPE)
+      console.log('NodeId', `${POST_NODE_TYPE}-${node.id}`)
     }
     // unshuffle all mixed components properties.
     for (const _strapiType of _pluginOptions.strapiTypes) {
@@ -39,21 +46,26 @@ exports.onCreateNode = async ({
         for (const _dz of _strapiType.dynamicZones) {
           if (node[_dz] && node[_dz].length > 0) {
             const dynamicZone = {}
+            const dynamicZoneArray = []
             const dynamicZoneJSON = []
             let position = 0
             for (const component of node[_dz]) {
               if (component) {
+                // console.log('>>>component', component)
                 const name = camelize(
                   component.strapi_component.replace('.', '_')
                 )
                 // component['__typename'] = pascalize(name)
+                component['_xtypename'] = pascalize(name)
                 component['order'] = position
-                dynamicZone[name] = component
+                dynamicZone[`${name}`] = component
                 dynamicZoneJSON.push(component)
+                dynamicZoneArray.push({ [name]: component })
                 position++
               }
             }
-            node[_dz] = dynamicZone
+            // node[_dz] = dynamicZone
+            node[_dz] = dynamicZoneArray
             // Keep data as JSON for fallBack
             node[`${_dz}JSON`] = JSON.parse(
               JSON.stringify(Object.assign({}, dynamicZoneJSON))
@@ -77,3 +89,14 @@ exports.onCreateNode = async ({
   }
   return
 }
+
+exports.onCreateNode = onCreateNode
+
+// exports.onCreateNode = async ({
+//   node,
+//   actions: { createNode },
+//   createNodeId,
+//   createContentDigest,
+// }) => {
+
+// }
