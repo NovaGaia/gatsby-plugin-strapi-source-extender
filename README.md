@@ -11,6 +11,10 @@ A plugin to extend Strapi Source plugin.
 > - `"strapi": "3.6.8"`
 > - `"gatsby": "^4.4.0"`
 
+### Changelog
+
+**More informations in [`CHANGELOG.md`](https://github.com/NovaGaia/gatsby-plugin-strapi-source-extender/blob/main/CHANGELOG.md)**
+
 ## Installation
 
 ```bash
