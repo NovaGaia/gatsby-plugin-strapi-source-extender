@@ -7,7 +7,13 @@ import PropTypes from 'prop-types'
  */
 StrapiExtenderUtils.objectToArray = dz => {
   const dzSanitized = []
-  Object.keys(dz).forEach(key => (dz[key] ? dzSanitized.push(dz[key]) : ''))
+  Object.keys(dz).forEach(key => {
+    if (dz[key]) {
+      Object.keys(dz[key]).forEach(microKey => {
+        dz[key][microKey] ? dzSanitized.push(dz[key][microKey]) : ''
+      })
+    }
+  })
   dzSanitized.sort(function (a, b) {
     return a.order - b.order
   })
