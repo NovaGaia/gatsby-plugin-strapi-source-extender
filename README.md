@@ -11,6 +11,13 @@ A plugin to extend Strapi Source plugin.
 > - `"strapi": "3.6.8"`
 > - `"gatsby": "^4.4.0"`
 
+![License](https://img.shields.io/github/license/NovaGaia/gatsby-plugin-strapi-source-extender?style=flat-square)
+![Version](https://img.shields.io/npm/v/gatsby-plugin-strapi-source-extender?style=flat-square)
+![Gatsby Version](https://img.shields.io/npm/dependency-version/gatsby-plugin-strapi-source-extender/peer/gatsby?style=flat-square)
+![Strapi Version](https://img.shields.io/npm/dependency-version/gatsby-plugin-strapi-source-extender/peer/strapi?style=flat-square)
+![gatsby-source-strapi Version](https://img.shields.io/npm/dependency-version/gatsby-plugin-strapi-source-extender/peer/gatsby-source-strapi?style=flat-square)
+![React Version](https://img.shields.io/github/package-json/dependency-version/NovaGaia/gatsby-plugin-strapi-source-extender/peer/react?style=flat-square)
+
 ### Changelog
 
 **More informations in [`CHANGELOG.md`](https://github.com/NovaGaia/gatsby-plugin-strapi-source-extender/blob/main/CHANGELOG.md)**
